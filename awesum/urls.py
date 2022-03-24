@@ -16,11 +16,17 @@ Including another URLconf
 from unicodedata import name
 from django.contrib import admin
 from django.urls import path, include
+
 import summary.views   #앱 이름 summary의 모든 뷰 임포트
 from spacy import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', summary.views.index, name='Homepage'),
-    path('summarize', summary.views.summarize, name='Summarize')
+    path('summarize', summary.views.summarize, name='Summarize'),
+
+    path('quiz/', include('quiz.urls')), #quiz앱의 urls.py
+    path('summary/', include('summary.urls')), #quiz앱의 urls.py
+
+
 ]
