@@ -22,11 +22,13 @@ from spacy import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', summary.views.index, name='Homepage'),
-    path('summarize', summary.views.summarize, name='Summarize'),
+    #path('', summary.views.index, name='Homepage'),
+    #path('summarize', summary.views.summarize, name='Summarize'),
 
-    path('quiz/', include('quiz.urls')), #quiz앱의 urls.py
-    path('summary/', include('summary.urls')), #quiz앱의 urls.py
+    path('quizzes/<int:video_id>/', include('quiz.urls')), #quiz앱의 urls.py
+    path('summaries/<int:video_id>/', include('summary.urls')), #summaries앱의 urls.py
+    #path('videos/<int:video_id>', include('videos.urls')), #videos 앱의 urls.py
+
 
 
 ]

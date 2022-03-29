@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'summary.apps.SummaryConfig',
     'quiz.apps.QuizConfig',
+    'videos.apps.VideosConfig',
     'rest_framework',
+    'embed_video', ### 주의
 ]
 
 MIDDLEWARE = [

@@ -3,5 +3,5 @@ from .views import showQuiz
 
 urlpatterns = [
     
-    path("show/", showQuiz),
+    path("", showQuiz),
 ]
