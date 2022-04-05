@@ -65,9 +65,6 @@ def showMediumAPI(request, video_id):
 
 
 
-    
-    
-
     m_summary.body = l_summary.body
 
     m_summary.video = l_summary.video
