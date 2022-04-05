@@ -23,24 +23,22 @@ def showQuiz(request, video_id):
     
     for i, each_line in enumerate(list):
         this_quiz = Quiz()
-        if i%2 == 0:
-            this_quiz.question = "True Ex" + each_line
+        if i%2 == 0: 
+            this_quiz.question = "True Ex : " + each_line
             this_quiz.answer = 1
             
-        else:
-            this_quiz.question = "False Ex" + each_line
+        else: 
+            this_quiz.question = "False Ex : " + each_line
             this_quiz.answer = 0
 
         this_quiz.video = bert.video
+
         if i != len(list)-1 :
+            #여기다가 <퀴즈형태로 문장가공> 코드 삽입
             this_quiz.save()
         i+=1
 
 
-        
-
-
-    
     
     #퀴즈보여주는부분
     current_video = get_object_or_404(Video, pk=video_id)
