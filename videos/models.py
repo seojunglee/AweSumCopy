@@ -7,6 +7,7 @@ class Video(models.Model):
     transcript = models.TextField()
     
 class Subtitle(models.Model):
+    videoid = models.ForeignKey(Video, on_delete=models.CASCADE, null=True)
     text = models.TextField()
     start = models.FloatField()
 
