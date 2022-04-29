@@ -7,8 +7,10 @@ from django.http import HttpResponse
 from summarizer.sbert import SBertSummarizer
 
 
+#from transformers import pipeline
+#from __future__ import print_function
+import ipywidgets as widgets
 from transformers import pipeline
-
 
 
 
@@ -63,9 +65,9 @@ def showMediumAPI(request, video_id):
     current_video = get_object_or_404(Video, pk=video_id)
     l_summary = LongSummary.objects.filter(video = current_video)[0]
 
-
-
-    m_summary.body = l_summary.body
+    summarizer = pipeline('summarization')
+    m_summary.body = (summarizer(l_summary.body)[0])['summary_text']
+ 
 
     m_summary.video = l_summary.video
     m_summary.save()  #저장 
