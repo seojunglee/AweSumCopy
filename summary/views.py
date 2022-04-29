@@ -7,10 +7,10 @@ from django.http import HttpResponse
 from summarizer.sbert import SBertSummarizer
 
 
-#from transformers import pipeline
+from transformers import pipeline
 #from __future__ import print_function
 import ipywidgets as widgets
-from transformers import pipeline
+#from transformers import pipeline
 
 
 
