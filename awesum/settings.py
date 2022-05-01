@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'videos.apps.VideosConfig',
     'rest_framework',
     'embed_video', ### 주의
+     
 ]
 
 MIDDLEWARE = [
