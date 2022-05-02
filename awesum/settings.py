@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os, json
 from django.core.exceptions import ImproperlyConfigured
 from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 secret_file = os.path.join(BASE_DIR, 'secrets.json') #secrets.json을 불러와 줍니다.
