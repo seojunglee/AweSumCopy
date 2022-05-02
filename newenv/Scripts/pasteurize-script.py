@@ -1,4 +1,4 @@
-#!C:\Users\Sierra\Documents\GitHub\AweSum-BE\newenv\Scripts\python.exe
+#!c:\users\sierra\documents\github\awesum-be\newenv\scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'future==0.18.2','console_scripts','pasteurize'
 import re
 import sys

@@ -1,4 +1,4 @@
-#!C:\Users\Sierra\Documents\GitHub\AweSum-BE\newenv\Scripts\python.exe
+#!c:\users\sierra\documents\github\awesum-be\newenv\scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'summa==1.2.0','console_scripts','textrank'
 import re
 import sys

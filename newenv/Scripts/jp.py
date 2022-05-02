@@ -1,4 +1,4 @@
-#!C:\Users\Sierra\Documents\GitHub\AweSum-BE\newenv\Scripts\python.exe
+#!c:\users\sierra\documents\github\awesum-be\newenv\scripts\python.exe
 
 import sys
 import json
