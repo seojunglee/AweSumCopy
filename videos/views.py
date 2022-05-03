@@ -16,7 +16,8 @@ from videos.models import Video
 
 
 def index(request):
-    current_video = get_object_or_404(Video, pk=6)
+
+    current_video = get_object_or_404(Video, pk=6) #pk임시고정
     return render(request, 'index.html',{'video': current_video})
 
 
