@@ -13,16 +13,20 @@ from .serializers import SubtitleSerializer
 
 from videos.models import Video
 
-# Create your views here.
 
 
-@api_view(['post''get'])
+def index(request):
+    current_video = get_object_or_404(Video, pk=6)
+    return render(request, 'index.html',{'video': current_video})
+
+
+@api_view(['POST','GET'])
 def searchAPI(request, video_id):
-    if video_id:
 
+    if video_id:
         current_video = get_object_or_404(Video, pk=video_id)
-        subtitles = Subtitle.objects.filter(video = current_video).order_by('-id')
-        
+        subtitles = Subtitle.objects.filter(video = current_video)
+
         q = request.POST.get('q', "")
         
         if q:
@@ -30,5 +34,5 @@ def searchAPI(request, video_id):
             serializer = SubtitleSerializer(subtitles, many=True)
             return Response(serializer.data)
 
-        #else:
-            # 예외처리
+        else:
+            return render(request, 'index.html')
