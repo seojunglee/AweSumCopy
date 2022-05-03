@@ -11,6 +11,7 @@ from summary.models import LongSummary
 
 
 
+
 @api_view(['GET'])
 def showQuiz(request, video_id):
     #퀴즈생성부

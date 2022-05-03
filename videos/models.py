@@ -7,6 +7,6 @@ class Video(models.Model):
 
 
 class Subtitle(models.Model):
-    videoid = models.ForeignKey(Video, on_delete=models.CASCADE, null=True)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE, null=True)
     text = models.TextField()
     start = models.TextField()

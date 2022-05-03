@@ -18,12 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 
 import summary.views   #앱 이름 summary의 모든 뷰 임포트
+import videos.views
 from spacy import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', summary.views.index, name='Homepage'),
-    #path('summarize', summary.views.summarize, name='Summarize'),
+
+    path('', videos.views.index, name="home"),
+    path('search/<int:video_id>/', videos.views.searchAPI, name='searchAPI'),
+    
 
     path('quizzes/<int:video_id>/', include('quiz.urls')), #quiz앱의 urls.py 
     path('summaries/<int:video_id>/', include('summary.urls')), #summary앱의 urls.py
