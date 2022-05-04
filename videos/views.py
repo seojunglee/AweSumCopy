@@ -19,7 +19,7 @@ from videos.models import Video
 
 def index(request):
 
-    current_video = get_object_or_404(Video, pk=13) #pk임시고정
+    current_video = get_object_or_404(Video, pk=14) #pk임시고정
     return render(request, 'index.html',{'videoid': current_video})
 
 

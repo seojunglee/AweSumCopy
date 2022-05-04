@@ -1,6 +1,7 @@
 import re
 from urllib.parse import urlparse, parse_qs
 from youtube_transcript_api import YouTubeTranscriptApi
+from punctuator import Punctuator
 
 
 def video_id(url):
@@ -25,6 +26,10 @@ def video_subtitles(video_id):
     texts = ''
     for trans_dict in transcript_lst:
         texts += trans_dict['text'] + ' '
+    p = Punctuator('Demo-Europarl-EN.pcl')
+    texts = p.punctuate(texts)
+
+
     return texts
 
 
