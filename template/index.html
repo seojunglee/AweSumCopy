@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,21 +21,20 @@
         </header>
 
         <p class="content">
-            <form action="{% url 'searchAPI' video.id %}" method="POST">
+            <form action="{% url 'searchAPI' videoid.id %}" method="POST">
                 {% csrf_token %}
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q"
-                    value="{{q}}"><button class="button" type="submit">Search</button>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{q}}"><button class="button" type="submit">Search</button>
             </form>
         </p>
-        
+
     </section>
 
-    
+
 
     <!-- 여기부터는 무시  -->
     <form method="post" enctype="multipart/form-data" action="summarize">
-        {% csrf_token %} 
-        <div><label for = "fname">원문:</label></div><input name="textValue" type="text" placeholder="여기에 텍스트 입력"> 
+        {% csrf_token %}
+        <div><label for="fname">원문:</label></div><input name="textValue" type="text" placeholder="여기에 텍스트 입력">
         <br>
         <br>
         <input type="submit" value="Submit">
@@ -42,13 +42,11 @@
 
 
     </form>
-    <br>
-
-    {% if ans %} 
-    <h1>This is the summary : 
-        {{ans}}
+    <br> {% if ans %}
+    <h1>This is the summary : {{ans}}
     </h1>
     {% endif %}
-    
+
 </body>
+
 </html>
