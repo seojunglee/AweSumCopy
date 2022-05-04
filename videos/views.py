@@ -14,15 +14,7 @@ from .serializers import VideoSerializer
 from .utils.video_info import video_id, video_subtitles, custom_subtitles
 from videos.models import Video
 
-<<<<<<< HEAD
-# import youtube_dl
-# import pandas as pd
-# from time import sleep
-# import os
-# from selenium import webdriver # for interacting with website
 
-=======
->>>>>>> yuna
 
 
 def index(request):
@@ -40,15 +32,13 @@ def searchAPI(request, video_id):
 
         q = request.POST.get('q', "")
         
-        if q: 
+        if q:
             subtitles = subtitles.filter(text__icontains=q)
             serializer = SubtitleSerializer(subtitles, many=True)
             return Response(serializer.data)
 
-<<<<<<< HEAD
-        #else:
-            # 예외처리
-
+        else:
+            return render(request, 'index.html')
 
 
 
@@ -84,11 +74,3 @@ def saveVideo(request):
 
 
 
-# @api_view(['GET'])
-# def streamVideo(request):
-#     serializer = VideoSerializer()
-#     return Response("")
-=======
-        else:
-            return render(request, 'index.html')
->>>>>>> yuna
