@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from yaml import serialize
 from .models import Video, Subtitle
-from .serializers import SubtitleSerializer
+from .serializers import IDSerializer, SubtitleSerializer
 from .serializers import VideoSerializer
 from .utils.video_info import video_id, video_subtitles, custom_subtitles
 from videos.models import Video
@@ -57,7 +57,8 @@ def saveVideo(request):
                 for transcript in transcripts:
                     subtitle = Subtitle(videoid=video, text=transcript['text'], start=transcript['start'])
                     subtitle.save()
-                return Response(status=200, data='inserted successfully')
+                    serializer = IDSerializer(video)
+                return Response(serializer.data, status=200)
             else:
                 video = Video.objects.get(videoid=vid)
                 video.transcript = texts
@@ -68,9 +69,9 @@ def saveVideo(request):
                 for transcript in transcripts:
                     subtitle = Subtitle(videoid=video, text=transcript['text'], start=transcript['start'])
                     subtitle.save()
-                return Response(status=200, data='updated succesfully')
+                serializer = IDSerializer(video)
+                return Response(serializer.data, status=200)
     else:
         return Response(status=405, data='Method Not Allowed')
-
 
 
