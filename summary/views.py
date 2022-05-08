@@ -4,13 +4,12 @@ import re
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from summarizer import Summarizer
-
+#from summarizer import Summarizer
+from summarizer.sbert import SBertSummarizer
 
 from transformers import pipeline
-#from __future__ import print_function
 import ipywidgets as widgets
-#from transformers import pipeline
+
 
 
 
@@ -32,8 +31,8 @@ def showLongAPI(request):
     
     if video_id:
         #요약 생성부
-        model = Summarizer()
-        l_summary = LongSummary() #객체 생성
+        model = SBertSummarizer('paraphrase-MiniLM-L6-v2')
+        l_summary = LongSummary() 
 
         this_video = get_object_or_404(Video, pk=video_id)
         text = this_video.transcript    #텍스트 가져오기
