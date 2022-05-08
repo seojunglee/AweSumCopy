@@ -26,8 +26,8 @@ urlpatterns = [
 
     
 
-    path('quizzes/<int:video_id>/', include('quiz.urls')), #quiz앱의 urls.py 
-    path('summaries/<int:video_id>/', include('summary.urls')), #summary앱의 urls.py
+    path('quizzes/', include('quiz.urls')), #quiz앱의 urls.py 
+    path('summaries/', include('summary.urls')), #summary앱의 urls.py
     path('subtitles/<int:video_id>/', include('videos.urls')),
 
     path('videos/', include('videos.urls')),
