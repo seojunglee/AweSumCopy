@@ -12,41 +12,7 @@
 
 <body>
 
-    {{video.videoid|linebreaks}}
-
-    <!-- 검색 테스트 -->
-    <section id="second" class="main special">
-        <header class="major">
-            <h2>검색어</h2>
-        </header>
-
-        <p class="content">
-            <form action="{% url 'searchAPI' videoid.id %}" method="POST">
-                {% csrf_token %}
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{q}}"><button class="button" type="submit">Search</button>
-            </form>
-        </p>
-
-    </section>
-
-
-
-    <!-- 여기부터는 무시  -->
-    <form method="post" enctype="multipart/form-data" action="summarize">
-        {% csrf_token %}
-        <div><label for="fname">원문:</label></div><input name="textValue" type="text" placeholder="여기에 텍스트 입력">
-        <br>
-        <br>
-        <input type="submit" value="Submit">
-
-
-
-    </form>
-    <br> {% if ans %}
-    <h1>This is the summary : {{ans}}
-    </h1>
-    {% endif %}
-
+    
 </body>
 
 </html>
