@@ -4,15 +4,10 @@ import re
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-#from summarizer import Summarizer
+
 from summarizer.sbert import SBertSummarizer
-from sentence_transformers import SentenceTransformer
 
 from transformers import pipeline
-import ipywidgets as widgets
-
-
-
 
 
 from rest_framework.response import Response
