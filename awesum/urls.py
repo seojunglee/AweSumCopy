@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', videos.views.index, name="home"),
-    path('search/<int:video_id>/', videos.views.searchAPI, name='searchAPI'),
+    #path('search/<int:video_id>/',include('videos.urls') ),
     
 
     path('quizzes/<int:video_id>/', include('quiz.urls')), #quiz앱의 urls.py 

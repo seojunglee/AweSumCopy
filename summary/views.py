@@ -4,7 +4,7 @@ import re
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from summarizer.sbert import SBertSummarizer
+from summarizer import Summarizer
 
 
 from transformers import pipeline
@@ -29,7 +29,7 @@ from videos.models import Video
 def showLongAPI(request, video_id):
     if video_id:
         #요약 생성부
-        model = SBertSummarizer('paraphrase-MiniLM-L6-v2')
+        model = Summarizer()
         l_summary = LongSummary() #객체 생성
 
         this_video = get_object_or_404(Video, pk=video_id)

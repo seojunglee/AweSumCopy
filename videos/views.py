@@ -23,14 +23,14 @@ def index(request):
     return render(request, 'index.html',{'videoid': current_video})
 
 
-@api_view(['POST','GET'])
+@api_view(['GET'])
 def searchAPI(request, video_id):
 
     if video_id:
         current_video = get_object_or_404(Video, pk=video_id)
         subtitles = Subtitle.objects.filter(videoid = current_video)
 
-        q = request.POST.get('q', "")
+        q = request.GET.get('q')
         
         if q:
             subtitles = subtitles.filter(text__icontains=q)
@@ -39,7 +39,6 @@ def searchAPI(request, video_id):
 
         else:
             return render(request, 'index.html')
-
 
 
 @api_view(['POST'])
