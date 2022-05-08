@@ -3,7 +3,7 @@ from .views import showMediumAPI, showLongAPI
 
 urlpatterns = [
     
-    path("medium/", showMediumAPI),
-    path("long/", showLongAPI),
+    path("medium", showMediumAPI),
+    path("long", showLongAPI),
 
 ]

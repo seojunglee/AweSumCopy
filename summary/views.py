@@ -26,7 +26,10 @@ from videos.models import Video
 ### LONG SUMMARY
 
 @api_view(['get'])
-def showLongAPI(request, video_id):
+def showLongAPI(request):
+
+    video_id = request.GET.get('id')
+    
     if video_id:
         #요약 생성부
         model = Summarizer()
@@ -57,7 +60,9 @@ def showLongAPI(request, video_id):
 
 ### MEDIUM SUMMARY 
 @api_view(['get'])
-def showMediumAPI(request, video_id):
+def showMediumAPI(request):
+
+    video_id = request.GET.get('id')
 
     m_summary = MediumSummary()  #객체생성
     

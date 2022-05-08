@@ -13,7 +13,11 @@ from summary.models import LongSummary
 
 
 @api_view(['GET'])
-def showQuiz(request, video_id):
+def showQuiz(request):
+
+    video_id = request.GET.get('id')
+
+    
     #퀴즈생성부
     current_video = get_object_or_404(Video, pk=video_id)
     bert = LongSummary.objects.filter(video = current_video)[0]
