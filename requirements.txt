@@ -130,7 +130,6 @@ six
 sklearn
 smart-open
 sniffio
-sortedcontainers
 soupsieve
 spacy
 spacy-legacy
