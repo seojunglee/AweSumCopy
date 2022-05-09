@@ -109,7 +109,6 @@ PySocks
 python-dateutil
 pytorch-lightning
 pytz
-pywinpty
 PyYAML
 pyzmq
 Questgen
