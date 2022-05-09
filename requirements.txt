@@ -26,7 +26,6 @@ charset-normalizer==2.0.12
 click==8.0.4
 colorama==0.4.4
 cymem==2.0.6
-Cython==0.29.28
 debugpy==1.6.0
 decorator==5.1.1
 defusedxml==0.7.1
@@ -83,7 +82,6 @@ nest-asyncio==1.5.5
 networkx==2.6.3
 nltk==3.7
 notebook==6.4.11
-numpy==1.21.5
 oauthlib==3.2.0
 outcome==1.1.0
 packaging==21.3
