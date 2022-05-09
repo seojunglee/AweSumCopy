@@ -91,7 +91,6 @@ parso
 pathy
 pickleshare
 Pillow
-pke
 preshed
 prometheus-client
 prompt-toolkit
