@@ -145,32 +145,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-def patch_broken_pipe_error():
-
-    import sys
-    from socketserver import BaseServer
-    from wsgiref import handlers
-
-    handle_error = BaseServer.handle_error
-    log_exception = handlers.BaseHandler.log_exception
-
-    def is_broken_pipe_error():
-        type, err, tb = sys.exc_info()
-        return repr(err) == "error(32, 'Broken pipe')"
-
-    def my_handle_error(self, request, client_address):
-        if not is_broken_pipe_error():
-            handle_error(self, request, client_address)
-
-    def my_log_exception(self, exc_info):
-        if not is_broken_pipe_error():
-            log_exception(self, exc_info)
-
-    BaseServer = my_handle_error
-    handlers.BaseHandler.log_exception = my_log_exception
-
-patch_broken_pipe_error()
