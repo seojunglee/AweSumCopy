@@ -3,7 +3,7 @@ Description=uWSGI service
 After=syslog.target
  
 [Service]
-ExecStart=/home/ubuntu/django/awesumenv/bin/uwsgi -i /home/ubuntu/django/AweSum-BE/.config/uwsgi/mysite.ini
+ExecStart=/home/ubuntu/myvenv/bin/uwsgi -i /srv/AweSum-BE/.config/uwsgi/mysite.ini
  
 Restart=always
 KillSignal=SIGQUIT

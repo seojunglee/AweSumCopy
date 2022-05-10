@@ -43,7 +43,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    '54.167.81.218',
+    'ec2-13-209-76-72.ap-northeast-2.compute.amazonaws.com'
 ]
 
 
@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'videos.apps.VideosConfig',
     'rest_framework',
     'embed_video', ### 주의
+    'corsheaders',
      
 ]
 
@@ -73,7 +74,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'awesum.urls'
 
@@ -143,34 +148,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-def patch_broken_pipe_error():
-
-    import sys
-    from socketserver import BaseServer
-    from wsgiref import handlers
-
-    handle_error = BaseServer.handle_error
-    log_exception = handlers.BaseHandler.log_exception
-
-    def is_broken_pipe_error():
-        type, err, tb = sys.exc_info()
-        return repr(err) == "error(32, 'Broken pipe')"
-
-    def my_handle_error(self, request, client_address):
-        if not is_broken_pipe_error():
-            handle_error(self, request, client_address)
-
-    def my_log_exception(self, exc_info):
-        if not is_broken_pipe_error():
-            log_exception(self, exc_info)
-
-    BaseServer = my_handle_error
-    handlers.BaseHandler.log_exception = my_log_exception
-
-patch_broken_pipe_error()
+SESSION_COOKIE_AGE = 1200
+SESSION_SAVE_EVERY_REQUEST = True
