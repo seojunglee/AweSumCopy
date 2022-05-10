@@ -35,6 +35,10 @@ def searchAPI(request):
 
         if q:
             subtitles = subtitles.filter(text__icontains=q)
+            val = 1
+            for i in subtitles:
+                i.sub_num = val
+                val = val + 1
             serializer = SubtitleSerializer(subtitles, many=True)
             return Response(serializer.data)
 
