@@ -1,3 +1,61 @@
+<<<<<<< HEAD
+absl-py
+aiohttp
+aiosignal
+asgiref
+async-generator
+async-timeout
+asynctest
+attrs
+benepar
+bert-extractive-summarizer
+blis
+boto3
+botocore
+cachetools
+catalogue
+certifi
+cffi
+charset-normalizer
+click
+colorama
+cymem
+Cython
+Django
+django-embed-video
+djangorestframework
+# en-core-web-sm==3.0.0
+filelock
+frozenlist
+fsspec
+future
+google-auth
+google-auth-oauthlib
+grpcio
+h11
+huggingface-hub
+idna
+importlib-metadata
+install
+Jinja2
+jmespath
+joblib
+langcodes
+Markdown
+MarkupSafe
+multidict
+murmurhash
+nltk
+numpy
+oauthlib
+outcome
+packaging
+
+pathy
+Pillow
+preshed
+protobuf
+=======
 absl-py==1.0.0
 aiohttp==3.8.1
 aiosignal==1.2.0
@@ -97,21 +155,29 @@ prompt-toolkit
 protobuf
 psutil
 punctuator
+>>>>>>> a3f41eb6a88bbf755c8001159b4de1837d3f2599
 pyasn1
 pyasn1-modules
 pycparser
 pydantic
 pyDeprecate
+<<<<<<< HEAD
+pyparsing
+=======
 Pygments
 pyparsing
 pyrsistent
 PySocks
+>>>>>>> a3f41eb6a88bbf755c8001159b4de1837d3f2599
 python-dateutil
 pytorch-lightning
 pytz
 PyYAML
+<<<<<<< HEAD
+=======
 pyzmq
 Questgen
+>>>>>>> a3f41eb6a88bbf755c8001159b4de1837d3f2599
 regex
 requests
 requests-oauthlib
@@ -121,24 +187,39 @@ sacremoses
 scikit-learn
 scipy
 selenium
+<<<<<<< HEAD
+=======
 Send2Trash
 sense2vec
+>>>>>>> a3f41eb6a88bbf755c8001159b4de1837d3f2599
 sentence-transformers
 sentencepiece
 six
 sklearn
 smart-open
+<<<<<<< HEAD
+sniffio
+sortedcontainers
+=======
+>>>>>>> a3f41eb6a88bbf755c8001159b4de1837d3f2599
 spacy
 spacy-legacy
 spacy-loggers
 sqlparse
 srsly
+<<<<<<< HEAD
+=======
 strsim
+>>>>>>> a3f41eb6a88bbf755c8001159b4de1837d3f2599
 summa
 summarizer
 tensorboard
 tensorboard-data-server
 tensorboard-plugin-wit
+<<<<<<< HEAD
+thinc
+threadpoolctl
+=======
 tensorflow
 tensorflow-estimator
 termcolor
@@ -147,18 +228,28 @@ Theano
 thinc
 threadpoolctl
 tinycss2
+>>>>>>> a3f41eb6a88bbf755c8001159b4de1837d3f2599
 tokenizers
 torch
 torchmetrics
 torchvision
+<<<<<<< HEAD
+tqdm
+=======
 tornado
 tqdm
 traitlets
+>>>>>>> a3f41eb6a88bbf755c8001159b4de1837d3f2599
 transformers
 trio
 trio-websocket
 typer
 typing-extensions
+<<<<<<< HEAD
+urllib3
+wasabi
+Werkzeug
+=======
 Unidecode
 urllib3
 wasabi
@@ -167,7 +258,12 @@ webencodings
 Werkzeug
 widgetsnbextension
 wrapt
+>>>>>>> a3f41eb6a88bbf755c8001159b4de1837d3f2599
 wsproto
 yarl
 youtube-transcript-api
 zipp
+<<<<<<< HEAD
+ipywidgets
+=======
+>>>>>>> a3f41eb6a88bbf755c8001159b4de1837d3f2599

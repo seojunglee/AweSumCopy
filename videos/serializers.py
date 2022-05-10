@@ -5,7 +5,7 @@ from .models import Video, Subtitle
 class SubtitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subtitle
-        fields = ('text','start',)
+        fields = ('text','start','sub_num')
 
 class VideoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,7 +13,6 @@ class VideoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class IDSerializer(serializers.ModelSerializer):
-    
     class Meta:
         model = Video
         fields = ('id', 'videoid')
