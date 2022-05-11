@@ -7,8 +7,9 @@ from django.http import HttpResponse
 
 from summarizer.sbert import SBertSummarizer
 
-from transformers import pipeline
-
+#from transformers import pipeline
+import torch
+from transformers import AutoTokenizer, AutoModelWithLMHead,pipeline
 
 
 from rest_framework.response import Response
@@ -66,10 +67,17 @@ def showMediumAPI(request):
     current_video = get_object_or_404(Video, pk=video_id)
     l_summary = LongSummary.objects.filter(video = current_video)[0]
 
-    summarizer = pipeline('summarization')
-    m_summary.body = (summarizer(l_summary.body)[0])['summary_text']
- 
+    #summarizer = pipeline('summarization')
+    #m_summary.body = (summarizer(l_summary.body)[0])['summary_text']
+    
+    tokenizer = AutoTokenizer.from_pretrained('t5-base')
+    model = AutoModelWithLMHead.from_pretrained('t5-base', return_dict=True)
+    sequence = l_summary.body
+    inputs = tokenizer.encode("summarize: " + sequence,return_tensors='pt',max_length=512,truncation=True)
+    summary_ids = model.generate(inputs, max_length=150, min_length=80, length_penalty=5., num_beams=2)
+    m_summary.body  = tokenizer.decode(summary_ids[0])
 
+    
     m_summary.video = l_summary.video
     m_summary.save()  #저장 
 
