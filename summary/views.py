@@ -58,7 +58,7 @@ def showLongAPI(request):
 @api_view(['get'])
 def showMediumAPI(request):
 
-    time.sleep(10)
+    time.sleep(115)
 
 
     # video_id = request.GET.get('id')
