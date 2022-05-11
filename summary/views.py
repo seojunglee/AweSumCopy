@@ -18,7 +18,7 @@ from .models import MediumSummary, LongSummary
 from .serializers import MSummarySerializer, LSummarySerializer
 
 from videos.models import Video
-import time
+#import time
 
 ### LONG SUMMARY
 
@@ -58,38 +58,38 @@ def showLongAPI(request):
 @api_view(['get'])
 def showMediumAPI(request):
 
-    time.sleep(90)
+    #time.sleep(90)
 
 
-    # video_id = request.GET.get('id')
+    video_id = request.GET.get('id')
 
-    # m_summary = MediumSummary()  #객체생성
+    m_summary = MediumSummary()  #객체생성
     
-    # #요약 생성(long 불러와서 생성요약하기) 
-    # current_video = get_object_or_404(Video, pk=video_id)
-    # l_summary = LongSummary.objects.filter(video = current_video)[0]
+    #요약 생성(long 불러와서 생성요약하기) 
+    current_video = get_object_or_404(Video, pk=video_id)
+    l_summary = LongSummary.objects.filter(video = current_video)[0]
 
-    # #summarizer = pipeline('summarization')
-    # #m_summary.body = (summarizer(l_summary.body)[0])['summary_text']
+    #summarizer = pipeline('summarization')
+    #m_summary.body = (summarizer(l_summary.body)[0])['summary_text']
     
-    # tokenizer = AutoTokenizer.from_pretrained('t5-base')
-    # model = AutoModelWithLMHead.from_pretrained('t5-base', return_dict=True)
-    # sequence = l_summary.body
-    # inputs = tokenizer.encode("summarize: " + sequence,return_tensors='pt',max_length=512,truncation=True)
-    # summary_ids = model.generate(inputs, max_length=150, min_length=80, length_penalty=5., num_beams=2)
-    # m_summary.body  = tokenizer.decode(summary_ids[0])
+    tokenizer = AutoTokenizer.from_pretrained('t5-base')
+    model = AutoModelWithLMHead.from_pretrained('t5-base', return_dict=True)
+    sequence = l_summary.body
+    inputs = tokenizer.encode("summarize: " + sequence,return_tensors='pt',max_length=512,truncation=True)
+    summary_ids = model.generate(inputs, max_length=150, min_length=80, length_penalty=5., num_beams=2)
+    m_summary.body  = tokenizer.decode(summary_ids[0])
 
     
-    # m_summary.video = l_summary.video
-    # m_summary.save()  #저장 
+    m_summary.video = l_summary.video
+    m_summary.save()  #저장 
 
 
 
-    # #요약 전달
-    # current_video = get_object_or_404(Video, pk=video_id)
-    # m_summary = MediumSummary.objects.filter(video = current_video)
+    #요약 전달
+    current_video = get_object_or_404(Video, pk=video_id)
+    m_summary = MediumSummary.objects.filter(video = current_video)
 
-    # serializer = MSummarySerializer(m_summary, many=True)
-    return Response({"Success" : "ok"})
+    serializer = MSummarySerializer(m_summary, many=True)
+    #return Response({"Success" : "ok"})
 
-    # return Response(serializer.data)
+    return Response(serializer.data)
