@@ -9,7 +9,7 @@ from summarizer.sbert import SBertSummarizer
 
 #from transformers import pipeline
 import torch
-from transformers import AutoTokenizer, AutoModelWithLMHead,pipeline
+from transformers import AutoTokenizer, AutoModelWithLMHead, pipeline
 
 
 from rest_framework.response import Response
@@ -74,7 +74,7 @@ def showMediumAPI(request):
     model = AutoModelWithLMHead.from_pretrained('t5-base', return_dict=True)
     sequence = l_summary.body
     inputs = tokenizer.encode("summarize: " + sequence,return_tensors='pt',max_length=512,truncation=True)
-    summary_ids = model.generate(inputs, max_length=150, min_length=80, length_penalty=5., num_beams=2)
+    summary_ids = model.generate(inputs, max_length=500, min_length=80, length_penalty=5., num_beams=2)
     m_summary.body  = tokenizer.decode(summary_ids[0])
 
     
