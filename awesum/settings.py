@@ -43,8 +43,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'ec2-13-125-206-79.ap-northeast-2.compute.amazonaws.com',
-    '.awesum.site'
+    '.ap-northeast-2.compute.amazonaws.com',
+    '.awesum.site',
 ]
 
 
