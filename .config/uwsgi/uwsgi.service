@@ -3,7 +3,7 @@ Description=uWSGI service
 After=syslog.target
  
 [Service]
-ExecStart=/home/ubuntu/myvenv/bin/uwsgi -i /srv/AweSum-BE/.config/uwsgi/mysite.ini
+ExecStart=/home/u1876272/myvenv/bin/uwsgi -i /srv/AweSumCopy/.config/uwsgi/mysite.ini
  
 Restart=always
 KillSignal=SIGQUIT
